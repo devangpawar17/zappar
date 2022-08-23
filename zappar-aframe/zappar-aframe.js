@@ -3363,12 +3363,12 @@
               c.messageManager.postOutgoingMessage({ t: "zappar", d: e }, [e]);
             });
             if (
-              window.location.hostname.toLowerCase().indexOf(".zappar.io") > 0
+              1 == 1
             ) {
               let t = window.location.pathname.split("/");
-              t.length > 1 &&
-                t[1].length > 0 &&
-                e.impl.analytics_project_id_set(".wiz" + t[1]);
+              // t.length > 1 &&
+              //   t[1].length > 0 &&
+              //   e.impl.analytics_project_id_set(".wiz" + t[1]);
             }
             return (
               c.messageManager.onIncomingMessage.bind((t) => {
@@ -3405,7 +3405,7 @@
                       (e.style.zIndex = Number.MAX_SAFE_INTEGER.toString());
                     let t = document.createElement("span");
                     (t.innerText = " (30)"), e.append(t);
-                    let r = 50;
+                    let r = 30;
                     setInterval(function () {
                       r--, r >= 0 && (t.innerText = " (" + r.toString() + ")");
                     }, 1e3),
