@@ -2870,7 +2870,7 @@
                 this._resetGLContext();
             }
             pause() {
-              this._isPaused = !0;
+              this._isPaused = !1;
               let e = n.Pipeline.get(this._pipeline);
               e &&
                 e.currentCameraSource === this &&
