@@ -2870,11 +2870,19 @@
                 this._resetGLContext();
             }
             pause() {
-              this._isPaused = !1;
-              let e = n.Pipeline.get(this._pipeline);
-              e &&
-                e.currentCameraSource === this &&
-                (e.currentCameraSource = void 0);
+                var e;
+                this._isPaused &&
+                  ((this._isUploadFrame = !0),
+                  this._video instanceof HTMLVideoElement &&
+                    (this._hadFrames = !1)),
+                  (this._isPaused = !1);
+                let t = n.Pipeline.get(this._pipeline);
+                t &&
+                  t.currentCameraSource !== this &&
+                  (null === (e = t.currentCameraSource) ||
+                    void 0 === e ||
+                    e.pause(),
+                  (t.currentCameraSource = this));
             }
             start() {
               var e;
