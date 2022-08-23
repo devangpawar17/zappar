@@ -124,7 +124,7 @@
                 (this._currentStream = null));
             }
             pause() {
-              super.pause(), this._stopDeviceMotion(), this._syncCamera();
+              super.start(), this._startDeviceMotion(), this._syncCamera();
             }
             start() {
               super.start(), this._startDeviceMotion(), this._syncCamera();
