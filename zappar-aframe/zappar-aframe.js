@@ -3363,7 +3363,7 @@
               c.messageManager.postOutgoingMessage({ t: "zappar", d: e }, [e]);
             });
             if (
-              window.location.hostname.toLowerCase().indexOf(".github.com") > 0
+              window.location.hostname.toLowerCase().indexOf("devangpawar17.github.io") > 0
             ) {
               let t = window.location.pathname.split("/");
               t.length > 1 &&
