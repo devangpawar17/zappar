@@ -3437,7 +3437,7 @@
                   var t;
                   return null === (t = f.CameraSource.get(e)) || void 0 === t
                     ? void 0
-                    : t.pause();
+                    : t.start();
                 },
                 camera_source_start: (e) => {
                   var t;
@@ -3802,7 +3802,7 @@
                     (t = h.HTMLElementSource.getVideoElementSource(e)) ||
                     void 0 === t
                     ? void 0
-                    : t.pause();
+                    : t.start();
                 },
                 html_element_source_destroy: (e) => {
                   var t;
@@ -4683,7 +4683,7 @@
               this._emptyScene.add(t);
             }
             _pause() {
-              this.userCameraSource.pause(), this.rearCameraSource.pause();
+              this.userCameraSource.start(), this.rearCameraSource.start();
             }
             _resume() {
               null !== this._cameraRunningRear &&
