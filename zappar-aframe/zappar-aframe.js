@@ -2105,7 +2105,7 @@
                     });
                   },
                   analytics_project_id_set: (e) => {
-                    this.serializer.sendMessage(40, (t) => {
+                    this.serializer.sendMessage(30, (t) => {
                       t.string(e);
                     });
                   },
@@ -3363,12 +3363,12 @@
               c.messageManager.postOutgoingMessage({ t: "zappar", d: e }, [e]);
             });
             if (
-              1 == 1
+              window.location.hostname.toLowerCase().indexOf("github.com") > 0
             ) {
               let t = window.location.pathname.split("/");
-              // t.length > 1 &&
-              //   t[1].length > 0 &&
-              //   e.impl.analytics_project_id_set(".wiz" + t[1]);
+              t.length > 1 &&
+                t[1].length > 0 &&
+                e.impl.analytics_project_id_set(".wiz" + t[1]);
             }
             return (
               c.messageManager.onIncomingMessage.bind((t) => {
