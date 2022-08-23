@@ -2105,7 +2105,7 @@
                     });
                   },
                   analytics_project_id_set: (e) => {
-                    this.serializer.sendMessage(30, (t) => {
+                    this.serializer.sendMessage(40, (t) => {
                       t.string(e);
                     });
                   },
