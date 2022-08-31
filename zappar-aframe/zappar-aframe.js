@@ -124,7 +124,7 @@
                 (this._currentStream = null));
             }
             pause() {
-              super.start(), this._startDeviceMotion(), this._syncCamera();
+              super.pause(), this._stopDeviceMotion(), this._syncCamera();
             }
             start() {
               super.start(), this._startDeviceMotion(), this._syncCamera();
@@ -2870,19 +2870,11 @@
                 this._resetGLContext();
             }
             pause() {
-                var e;
-                this._isPaused &&
-                  ((this._isUploadFrame = !0),
-                  this._video instanceof HTMLVideoElement &&
-                    (this._hadFrames = !1)),
-                  (this._isPaused = !1);
-                let t = n.Pipeline.get(this._pipeline);
-                t &&
-                  t.currentCameraSource !== this &&
-                  (null === (e = t.currentCameraSource) ||
-                    void 0 === e ||
-                    e.pause(),
-                  (t.currentCameraSource = this));
+              this._isPaused = !0;
+              let e = n.Pipeline.get(this._pipeline);
+              e &&
+                e.currentCameraSource === this &&
+                (e.currentCameraSource = void 0);
             }
             start() {
               var e;
@@ -3371,7 +3363,7 @@
               c.messageManager.postOutgoingMessage({ t: "zappar", d: e }, [e]);
             });
             if (
-              1 > 0
+              window.location.hostname.toLowerCase().indexOf(".zappar.io") > 0
             ) {
               let t = window.location.pathname.split("/");
               t.length > 1 &&
@@ -3381,6 +3373,7 @@
             return (
               c.messageManager.onIncomingMessage.bind((t) => {
                 var r, n;
+                console.log(t.t)
                 switch (t.t) {
                   case "zappar":
                     null === (r = l.Pipeline.get(t.p)) ||
@@ -3437,7 +3430,7 @@
                   var t;
                   return null === (t = f.CameraSource.get(e)) || void 0 === t
                     ? void 0
-                    : t.start();
+                    : t.pause();
                 },
                 camera_source_start: (e) => {
                   var t;
@@ -3802,7 +3795,7 @@
                     (t = h.HTMLElementSource.getVideoElementSource(e)) ||
                     void 0 === t
                     ? void 0
-                    : t.start();
+                    : t.pause();
                 },
                 html_element_source_destroy: (e) => {
                   var t;
@@ -4683,7 +4676,7 @@
               this._emptyScene.add(t);
             }
             _pause() {
-              this.userCameraSource.start(), this.rearCameraSource.start();
+              this.userCameraSource.pause(), this.rearCameraSource.pause();
             }
             _resume() {
               null !== this._cameraRunningRear &&
